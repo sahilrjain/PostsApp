@@ -1,0 +1,21 @@
+package com.example.postsapp.di
+
+import com.example.postsapp.data.repository.PostsRepositoryImpl
+import com.example.postsapp.domain.repository.PostsRepository
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class RepositoryModule {
+
+    @Binds
+    @Singleton
+    abstract fun bindPostsRepository(
+        postsRepositoryImpl: PostsRepositoryImpl
+    ): PostsRepository
+}
+

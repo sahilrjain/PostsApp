@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.postsapp"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.postsapp"
@@ -81,6 +81,10 @@ dependencies {
     // OkHttp
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // Navigation 3
+    implementation("androidx.navigation3:navigation3-runtime:1.0.1")
+    implementation("androidx.navigation3:navigation3-ui:1.0.1")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

@@ -30,6 +30,7 @@ import com.example.postsapp.domain.model.Post
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PostsScreen(
+    onPostClick: (Post) -> Unit = {},
     viewModel: PostsViewModel = hiltViewModel()
 ) {
 
@@ -56,7 +57,10 @@ fun PostsScreen(
                     }
                 )
                 is PostsUiState.Loading -> LoadingScreen()
-                is PostsUiState.Success -> PostsList(state.posts)
+                is PostsUiState.Success -> PostsList(
+                    posts = state.posts,
+                    onPostClick = onPostClick
+                )
             }
         }
     }
@@ -97,7 +101,10 @@ fun ErrorScreen(
 
 
 @Composable
-fun PostsList(posts: List<Post>) {
+fun PostsList(
+    posts: List<Post>,
+    onPostClick: (Post) -> Unit
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
@@ -107,14 +114,21 @@ fun PostsList(posts: List<Post>) {
             items = posts,
             key = { it.id }
         ) {
-            PostItem(it)
+            PostItem(
+                post = it,
+                onClick = { onPostClick(it) }
+            )
         }
     }
 }
 
 @Composable
-fun PostItem(post: Post) {
+fun PostItem(
+    post: Post,
+    onClick: () -> Unit
+) {
     Card(
+        onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {

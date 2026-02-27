@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.postsapp.presentation.posts.PostsScreen
+import com.example.postsapp.presentation.navigation.PostsNavHost
 import com.example.postsapp.presentation.ui.theme.PostsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PostsAppTheme {
-                PostsScreen()
+                PostsNavHost()
             }
         }
     }

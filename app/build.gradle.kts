@@ -82,6 +82,10 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
+    // Paging 3
+    implementation("androidx.paging:paging-runtime:3.3.6")
+    implementation("androidx.paging:paging-compose:3.3.6")
+
     // Navigation 3
     implementation("androidx.navigation3:navigation3-runtime:1.0.1")
     implementation("androidx.navigation3:navigation3-ui:1.0.1")
